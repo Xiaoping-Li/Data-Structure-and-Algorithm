@@ -32,7 +32,7 @@ collection.
 */
 
 const bubbleSort = numList => {
-	let n = numList.length;
+   let n = numList.length;
 	// Outside loop runs (n-1) times, swaps a bigger one to the end of array each time
    for (let i = 0; i < numList.length - 1; i++) {
       let swap = false;
