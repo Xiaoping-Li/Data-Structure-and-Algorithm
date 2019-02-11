@@ -30,3 +30,24 @@ collection.
    b) Inner loop runs one less each time, because outside loop bubble a bigger one to the bottom each time
    c) If one outside loop doesn’t swap, means the sort is completed, return the list.
 */
+
+const bubbleSort = numList => {
+	let n = numList.length;
+	// Outside loop runs (n-1) times, swaps a bigger one to the end of array each time
+   for (let i = 0; i < numList.length - 1; i++) {
+      let swap = false;
+
+      // Inner loop runs n, (n-1), (n-2), … 1, one less every time, because outside loop swap a bigger one to the end each time
+      for (let j = 0; j < n - 1; j++) {
+         let temp = numList[j];
+         // Swap step
+         if (numList[j] > numList[j + 1] ) {
+            numList[j] = numList[j + 1];
+            numList[j + 1] = temp;
+            swap = true;
+         }	
+      }
+      n--;
+      if (!swap) return numList;
+   }
+};
