@@ -44,12 +44,9 @@ class myArray {
       return this._length === 0 ? `List is empty` : `idx is invalid! Provide idx between 0 - ${this._length - 1}`;
     }
 
-    let rtn;
     for (let i = 0; i < this._length; i++) {
-      if (i === idx) rtn = this._array[i];
-      break;
+      if (i === idx) return this._array[i];
     }
-    return rtn;
   }
 
 }
