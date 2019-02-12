@@ -38,6 +38,22 @@ class myArray {
     this._length++;
     return this._array[idx];
   }
+  
+  remove(idx) {
+    if (idx < 0 || idx >= this._length) {
+      return this._length === 0 ? `List is empty` : `idx is invalid! Provide idx between 0 - ${this._length - 1}`;
+    }
+
+    const rtn = this._array[idx];
+    while (idx < this._length - 1) {
+      this._array[idx] = this._array[idx + 1];
+      idx++;
+    }
+
+    this._array.pop();
+    this._length--;
+    return rtn;
+  }
 
   getElem(idx) {
     if (idx < 0 || idx >= this._length) {
