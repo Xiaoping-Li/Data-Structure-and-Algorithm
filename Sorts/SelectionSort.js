@@ -12,6 +12,14 @@ the sorted sublist is empty and the unsorted sublist is the entire input list. T
 (or largest, depending on sorting order) element in the unsorted sublist, exchanging (swapping) it with the leftmost unsorted 
 element (putting it in sorted order), and moving the sublist boundaries one element to the right.
 
+Among simple average-case Θ(n2) algorithms, selection sort almost always outperforms bubble sort and gnome sort. Insertion 
+sort is very similar in that after the kth iteration, the first k elements in the array are in sorted order. Insertion sort's 
+advantage is that it only scans as many elements as it needs in order to place the k + 1st element, while selection sort must 
+scan all remaining elements to find the k + 1st element.
+
+Finally, selection sort is greatly outperformed on larger arrays by Θ(n log n) divide-and-conquer algorithms such as mergesort.
+However, insertion sort or selection sort are both typically faster for small arrays (i.e. fewer than 10–20 elements).
+
 ***In computer science, an in-place algorithm is an algorithm which transforms input using no auxiliary data structure. However a 
 small amount of extra storage space is allowed for auxiliary variables. The input is usually overwritten by the output as the 
 algorithm executes. In-place algorithm updates input sequence only through replacement or swapping of elements. An algorithm 
