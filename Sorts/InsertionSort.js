@@ -19,6 +19,25 @@ implementations use insertion sort for arrays smaller than a certain threshold, 
 threshold must be determined experimentally and depends on the machine, but is commonly around ten.
 8. Insertion sort is very similar to selection sort.
 9. https://en.wikipedia.org/wiki/Insertion_sort
+
+一、基本思路：
+
+1、设置哨位i = 1
+
+2、将a[i]与a[0]~a[i - 1]的序列从后往前进行比较，如果哨位位置的数比哨位前一位要小，那么两个位置的数交换，标志待排序数的标志位递减。注意，这里需要一个标志位来标志待排序的数挪动到哪个位置，而不是挪动哨位。
+
+3、如果标志位的数比标志位前一位的数要小，则一直交换，直到标志位的数不比标志位前一位的数小或者标志位已经挪动到数组最前端为止（即标志位为0）。
+
+4、递增哨位，重复第二步，直到哨位挪动至数组最末端，排序结束
+
+二、性能分析
+
+直接选择排序的最差时间复杂度为O(n2)，最优时间复杂度为O(n)，平均时间复杂度为O(n2)，
+
+空间复杂度为O(1)，优点是实现简单，不占用多余空间，但效率较低，并且经常需要交换数据。
+--------------------- 
+
+原文：https://blog.csdn.net/jinwanchiji/article/details/79652304 
 */
 
 const insertSort = numList => {
