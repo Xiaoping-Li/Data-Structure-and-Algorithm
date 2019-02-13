@@ -15,6 +15,14 @@ Step 3 − merge the smaller lists into new list in sorted order.
 
 */
 
+/*
+!0 === true
+!'' === true
+![] === false
+![].length === true
+!{} === false
+*/
+
 const merge = (left, right) => {
 	const combine = [];
 	while (left.length && right.length) {
