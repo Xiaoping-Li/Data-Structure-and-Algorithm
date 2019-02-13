@@ -44,9 +44,6 @@ const mergeSort = (array) => {
 	if (n === 1) return array;
 	let left = array.slice(0, midPoint);
 	let right = array.slice(midPoint);
-
-	left = mergeSort(left);
-	right = mergeSort(right);
   
-	return merge(left, right);	
+	return merge(mergeSort(left), mergeSort(right));	
 };
