@@ -13,6 +13,8 @@ Step 1 − if it is only one element in the list it is already sorted, return.
 Step 2 − divide the list recursively into two halves until it can no more be divided.
 Step 3 − merge the smaller lists into new list in sorted order.
 
+
+
 */
 
 /*
@@ -27,12 +29,12 @@ const merge = (left, right) => {
 	const combine = [];
 	while (left.length && right.length) {
 		let min = left[0] > right[0] ? right.shift() : left.shift();
-		combine.push(min);
-  }
+		combine.push(min);	
+	}
 
-  if (!left.length) combine.push(...right);
-  if (!right.length) combine.push(...left);
-  return combine;
+	if (!left.length) combine.push(...right);
+	if (!right.length) combine.push(...left);
+	return combine;
 };
 
 const mergeSort = (array) => {
