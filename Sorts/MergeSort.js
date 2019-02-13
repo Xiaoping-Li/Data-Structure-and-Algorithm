@@ -14,3 +14,29 @@ Step 2 − divide the list recursively into two halves until it can no more be d
 Step 3 − merge the smaller lists into new list in sorted order.
 
 */
+
+const merge = (left, right) => {
+	const combine = [];
+	while (left.length && right.length) {
+		let min = left[0] > right[0] ? right.shift() : left.shift();
+		combine.push(min);
+  }
+
+  if (!left.length) combine.push(...right);
+  if (!right.length) combine.push(...left);
+  return combine;
+};
+
+const mergeSort = (array) => {
+	let n = array.length;
+	let midPoint = Math.round(n / 2);
+  
+	if (n === 1) return array;
+	let left = array.slice(0, midPoint);
+	let right = array.slice(midPoint);
+
+	left = mergeSort(left);
+	right = mergeSort(right);
+  
+	return merge(left, right);	
+};
