@@ -36,17 +36,28 @@ class LinkedList {
     return false;
   }
   
-  insert(value, i) {
-    if (i < 0 || i > this._length) return null;
-    const newNode = {
-      value,
+  insert(array, i) {
+    if (i < 0 || i > this._length) return 'Invalid i';
+
+    const headNode = {
+      value: array[0],
       next: null,
     };
     
     if (!this.head && i === 0) {
-      this.head = newNode;
-      this._length++;
-      return newNode;
+      this.head = headNode;
+      let current = this.head;
+      for (let i = 1; i < array.length; i++) {
+        let newNode = {
+          value: array[i],
+          next: null,
+        };
+        current.next = newNode;
+        current = current.next;
+      }
+
+      this._length += array.length;
+      return this.head;
     }
         
     let j = 0; 
@@ -54,16 +65,25 @@ class LinkedList {
     while (current) {
       if (j === i - 1) {
         let nextNode = current.next;
-        current.next = newNode;
-        newNode.next = nextNode;
-        this._length++;
-        return newNode;
+        for (let i = 0; i < array.length; i++) {
+          let newNode = {
+            value: array[i],
+            next: null,
+          };
+          current.next = newNode;
+          current = current.next; 
+        }
+
+        current.next = nextNode;
+
+        this._length += array.length;
+        return this.head;
       } else {
         current = current.next;
         j++;
       }
     }
-  }
+  } 
   
   
 }
