@@ -52,23 +52,16 @@ class LinkedList {
   
   insert(array, i) {
     if (i < 0 || i > this._length) return 'Invalid i';
-
-    const headNode = {
-      value: array[0],
-      next: null,
-    };
     
     if (!this.head && i === 0) {
-      this.head = headNode;
+      this.head = {
+        value: array[0],
+        next: null,
+      };
+
       let current = this.head;
-      for (let i = 1; i < array.length; i++) {
-        let newNode = {
-          value: array[i],
-          next: null,
-        };
-        current.next = newNode;
-        current = current.next;
-      }
+      let arraySlice = array.slice(1);
+      insertArray(current, arraySlice); // Use helper function
 
       this._length += array.length;
       return this.head;
@@ -79,15 +72,7 @@ class LinkedList {
     while (current) {
       if (j === i - 1) {
         let nextNode = current.next;
-        for (let i = 0; i < array.length; i++) {
-          let newNode = {
-            value: array[i],
-            next: null,
-          };
-          current.next = newNode;
-          current = current.next; 
-        }
-
+        current = insertArray(current, array); // Use helper function
         current.next = nextNode;
 
         this._length += array.length;
@@ -98,6 +83,5 @@ class LinkedList {
       }
     }
   } 
-  
-  
+       
 }
