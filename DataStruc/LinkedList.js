@@ -3,6 +3,20 @@ Linked List
 
 */
 
+// Helper function: insert array of items to the end of a node, and return the tail of this linked list
+const insertArray = (node, array) => {
+  for (let i = 0; i < array.length; i++) {
+    let newNode = {
+      value: array[i],
+      next: null,
+    };
+    node.next = newNode;
+    node = node.next;
+  }
+  return node;
+};
+
+
 class LinkedList {
   constructor() {
     this.head = null;
