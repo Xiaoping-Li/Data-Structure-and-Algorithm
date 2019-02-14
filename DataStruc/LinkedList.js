@@ -102,10 +102,41 @@ class LinkedList {
     }
   } 
   
-  removeItem(i) {
+  // Start from i, remove n items
+  removeItem(i, n) {
     if (i < 0 || i > this._length - 1) return 'Invalide index';
     
-    
+    // Start from index 0 for a nonempty linked list
+    let removeArray = [];
+    if (i === 0) {
+      let current = this.head;
+      let countN = n;
+      while(current && countN) {
+        removeArray.push(current.value);
+        current = current.next;
+        countN--;
+      }
+      this.head = current;
+      
+    } else {
+    // Start from anywhere for a nonempty linked list except index 0 
+      let preNode = this.head;
+      let j = 0;
+      while(j !== i - 1) {
+        preNode = preNode.next;
+        j++;
+      }
+      
+      let current = preNode.next;
+      let countN = n;
+      while(current && countN) {
+        removeArray.push(current.value);
+        current = current.next;
+        countN--;
+      }
+      preNode.next = current;
+    }
+    return removeArray; 
   }
        
 }
