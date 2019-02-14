@@ -45,6 +45,7 @@ class LinkedList {
     
     if (!this.head && i === 0) {
       this.head = newNode;
+      this._length++;
       return newNode;
     }
         
@@ -55,6 +56,7 @@ class LinkedList {
         let nextNode = current.next;
         current.next = newNode;
         newNode.next = nextNode;
+        this._length++;
         return newNode;
       } else {
         current = current.next;
