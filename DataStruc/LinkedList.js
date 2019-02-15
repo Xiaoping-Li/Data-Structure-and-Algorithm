@@ -117,7 +117,7 @@ class LinkedList {
         countN--;
       }
       this.head = current;
-      
+      this._length -= (n - countN);
     } else {
     // Start from anywhere for a nonempty linked list except index 0 
       let preNode = this.head;
@@ -135,6 +135,7 @@ class LinkedList {
         countN--;
       }
       preNode.next = current;
+      this._length -= (n - countN);
     }
     return removeArray; 
   }
