@@ -27,6 +27,13 @@ const Node = value => {
 class CircularSingleLinkedList {
   constructor() {
     this.head = null;
+    this._length = 0;
   }
+  
+  get size() {
+    return this._length;
+  }
+  
+  
   
 };
