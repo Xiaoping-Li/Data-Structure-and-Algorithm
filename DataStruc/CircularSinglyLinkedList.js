@@ -14,7 +14,19 @@ running on a PC, it is common for the operating system to put the running applic
 
 4) Circular Doubly Linked Lists are used for implementation of advanced data structures like Fibonacci Heap.
 
-
-
-Circular Singly Linked List
+Implement:
+In a conventional linked list, we traverse the list from the head node and stop the traversal when we reach NULL. In a circular
+linked list, we stop traversal when we reach the first node again.
 */
+
+const Node = value => {
+  value,
+  next: null,   
+};
+  
+class CircularSingleLinkedList {
+  constructor() {
+    this.head = null;
+  }
+  
+};
