@@ -34,12 +34,54 @@ class CircularSingleLinkedList {
     return this._length;
   }
   
-  insert(nums, i) {
-    if (i < 0 || i > this._length) return 'Invalid i';
+  insert(items, i) {
+    if (i < 0 || i > this._length - 1) return 'Invalid i';
+    const firstNode = new Node(items[0]);
     
+    // Insert items at index 0 for an empty circular single linked list
     if (!this._length && i === 0) {
-      
+      this.head = firstNode;
+      let current = this.head;
+      for (let i = 1; i < items.length; i++) {
+        let newNode = new Node(items[i]);
+        current.next = newNode;
+        current = current.next;
+      }
+      current.next = this.head;
+      this._length += items.length;
     }
+    
+    // Insert items at index 0 for a nonempty circular single linked list
+    if (this.head && i === 0) {
+      let preHead = this.head;
+      while(preHead.next !== this.head) { //The condition here maybe not right
+        preHead = preHead.next;
+      }
+      for (let i = 0; i < items.length; i++) {
+        let newNode = new Node(items[i]);
+        preHead.next = newNode;
+        preHead = preHead.next;
+      }
+      preHead.next = this.head;
+      this._length += items.length; 
+    }
+    
+    // Insert items at any index except 0 for a nonempty circular single linked list 
+    let j = 0;
+    let prei = this.head;
+    let afteri;
+    while(j < i - 1) {
+      prei = prei.next;
+      j++;
+    }
+    afteri = prei.next;
+    for (let i = 0; i < items.length; i++) {
+        let newNode = new Node(items[i]);
+        prei.next = newNode;
+        prei = prei.next;
+    }
+    prei.next = afteri;
+    this._length += items.length;
   }
   
 };
