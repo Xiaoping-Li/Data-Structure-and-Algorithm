@@ -34,6 +34,12 @@ class CircularSingleLinkedList {
     return this._length;
   }
   
-  
+  insert(nums, i) {
+    if (i < 0 || i > this._length) return 'Invalid i';
+    
+    if (!this._length && i === 0) {
+      
+    }
+  }
   
 };
