@@ -42,3 +42,7 @@ const bin2Dec = (binary) => {
 };
 
 console.log(bin2Dec(10001000));
+
+/*
+括号匹配
+*/
