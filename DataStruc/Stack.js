@@ -47,6 +47,39 @@ console.log(bin2Dec(10001000));
 题目：
 括号匹配：编写一个自动检测程序，检测括号是否以正确的形式成对出现。括号可以任意嵌套，例如[()]["({})"]<"[()]">是合法的，[(}]是非法的。
 */
+const validBrackets = (str) => {
+  let valid = true;
+  const brackesObj = {
+    ')': '(',
+    ']': '[',
+    '}': '{',
+    '>': '<',
+  };
+  const items = str.split('');
+  const stack = [];
+
+  while (items.length) {
+    let item = items.shift();
+    if (!stack.length) {
+      stack.push(item);
+    } else {
+      if (brackesObj[item] === stack[stack.length - 1]) {
+        stack.pop();
+      } else {
+        stack.push(item);
+      }
+    } 
+  }
+
+  if (stack.length) valid = false;
+  return valid;
+};
+
+console.log(validBrackets(')[()][({})]<[()]>'));
+
+
+
+
 
 /*
 题目：
