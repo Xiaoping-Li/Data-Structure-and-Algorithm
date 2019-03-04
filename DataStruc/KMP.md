@@ -13,6 +13,23 @@
 ```
 
 **Note** : lps[i] could also be defined as longest prefix which is also proper suffix. We need to use properly at one place to make sure that the whole substring is not considered.
+```
+Examples of lps[] construction:
+For the pattern “AAAA”, 
+lps[] is [0, 1, 2, 3]
+
+For the pattern “ABCDE”, 
+lps[] is [0, 0, 0, 0, 0]
+
+For the pattern “AABAACAABAA”, 
+lps[] is [0, 1, 0, 1, 2, 0, 1, 2, 3, 4, 5]
+
+For the pattern “AAACAAAAAC”, 
+lps[] is [0, 1, 2, 0, 1, 2, 3, 3, 3, 4] 
+
+For the pattern “AAABAAA”, 
+lps[] is [0, 1, 2, 0, 1, 2, 3]
+```
 
 
 
