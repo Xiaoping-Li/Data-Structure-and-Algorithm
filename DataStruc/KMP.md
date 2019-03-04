@@ -31,6 +31,8 @@ For the pattern “AAABAAA”,
 lps[] is [0, 1, 2, 0, 1, 2, 3]
 ```
 
+https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/
+
 
 
 
