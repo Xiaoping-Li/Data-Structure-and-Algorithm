@@ -57,7 +57,23 @@ In a post-order traversal, the root is always the last node visited.
 
 
 ## Binary Heaps (Min-Heaps and Max-Heaps)
+A `min-heap` is a _complete binary tree_ (that is, totally filled other than the rightmost elements on the last level) where each node is smaller than its children. The root, therefore, is the minimum element in the tree.
 
+We have two key operations on a min-heap:
+* insert
+* extract_min
+
+### Insert
+* When we insert into a min-heap, we always start by inserting the element at the _bottom_, at the rightmost spot so as to maintain the complete tree property.
+* Then, we "fix" the tree by swapping the new element with its parent, until we find an appropriate spot for the element.We essentially bubble up the minimum element.
+
+This takes **O(log n)** time, where n is the number of nodes in the heap.
+
+### Extract Minimum element
+* First, it's easy to find the minimum element of a min-heap: it's always at the top. We remove the minimum element and swap it with the last element in the heap (the bottommost, rightmost element).
+* Then, we bubble down this element, swapping it with one of its children until the min-heap property is restored.
+
+This algorithm will also take **O(log n)** time.
 
 ## Tries (Prefix Trees)
 
