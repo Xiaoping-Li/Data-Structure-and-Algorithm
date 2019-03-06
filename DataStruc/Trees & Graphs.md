@@ -35,10 +35,25 @@ A `perfect binary tree` is one that is both full and complete. All _leaf nodes_ 
 ## Binary Tree Traversal
 
 ### In-Order Traversal
+`In-order traversal` means to _visit_ (often print) the left branch, then the current node, and finally, the right branch. 
+```
+left branch -----> current node -----> right branch
+```
+When performed on a binary search tree, it visits the nodes in **ascending** order.
 
 ### Pre-Order Traversal
+`Pre-order traversal` visits the current node before its child nodes.
+```
+current node -----> left branch -----> right branch
+```
+In a pre-order traversal, the root is always the first node visited.
 
 ### Post-Order Traversal
+`Post-order traversal` visits the current node after its child nodes.
+```
+left branch -----> right branch -----> current node
+```
+In a post-order traversal, the root is always the last node visited.
 
 
 ## Binary Heaps (Min-Heaps and Max-Heaps)
