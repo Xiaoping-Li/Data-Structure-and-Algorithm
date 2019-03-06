@@ -14,8 +14,14 @@ A tree is a data structure composed of nodes.
 A `Binary search tree` is a _binary tree_ in which every node fits a specific ordering property: **all left descendents <= n < all right descendents**. This **must** be true for each node n.
 
 ### Balanced vs. Unbalanced
+Note that balancing a tree **does not** mean the left and right subtrees are exactly the same size. Means the tree is **balanced enough** to ensure O(log n) times for _insert_ and _find_, but it's not necessarily as balanced as it could be.
+
+Two common types of balanced trees are:
+* Red-black trees
+* AVL trees
 
 ### Complete Binary Trees
+A `complete binary tree` is a binary tree in which every **level** of the tree is fully filled, except for perhaps the last level. To the extent that the last level is filled, it is 
 
 ### Full Binary Trees
 
