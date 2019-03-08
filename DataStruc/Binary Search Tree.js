@@ -28,9 +28,34 @@ class BinarySearchTree {
     return this;
   }
   
-  // inOrderTraversal() {}
+  
+  inOrderTraversal() {
+    if (!this.data) return;
+
+    // Left first
+    if (this.left) {
+      this.left.inOrderTraversal();
+    }
+
+    // Then Middle
+    console.log(this.data);
+
+    // Right last
+    if (this.right) {
+      this.right.inOrderTraversal();
+    }
+  }
   
   // preOrderTraversal() {}
   
   // postOrderTraversal() {}
 }
+
+const myBT = new BinarySearchTree();
+myBT.insert(4);
+myBT.insert(5);
+myBT.insert(2);
+myBT.insert(1);
+myBT.insert(3);
+myBT.inOrderTraversal(); // 1 2 3 4 5
+
