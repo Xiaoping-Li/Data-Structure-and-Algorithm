@@ -33,6 +33,11 @@ A `perfect binary tree` is one that is both full and complete. All _leaf nodes_ 
 
 
 ## Binary Tree Traversal
+* Breadth First Traversal (Or Level Order Traversal)
+* Depth First Traversals
+  * Inorder Traversal (Left-Root-Right)
+  * Preorder Traversal (Root-Left-Right)
+  * Postorder Traversal (Left-Right-Root)
 
 ### In-Order Traversal
 `In-order traversal` means to _visit_ (often print) the left branch, then the current node, and finally, the right branch. 
