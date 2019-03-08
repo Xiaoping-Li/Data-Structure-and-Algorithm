@@ -49,7 +49,12 @@ class BinarySearchTree {
     if (this.right) this.right.preOrderTraversal();
   }
   
-  // postOrderTraversal() {}
+  postOrderTraversal() {
+    if (!this.data) return;
+    if (this.left) this.left.postOrderTraversal();
+    if (this.right) this.right.postOrderTraversal();
+    console.log(this.data);
+  }
 }
 
 const myBT = new BinarySearchTree();
@@ -60,3 +65,4 @@ myBT.insert(1);
 myBT.insert(3);
 myBT.inOrderTraversal(); // 1 2 3 4 5
 myBT.preOrderTraversal(); // 4 2 1 3 5
+myBT.postOrderTraversal(); // 1 3 2 5 4
