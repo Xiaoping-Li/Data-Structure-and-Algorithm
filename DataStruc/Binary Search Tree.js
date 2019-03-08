@@ -33,20 +33,21 @@ class BinarySearchTree {
     if (!this.data) return;
 
     // Left first
-    if (this.left) {
-      this.left.inOrderTraversal();
-    }
+    if (this.left) this.left.inOrderTraversal();
 
     // Then Middle
     console.log(this.data);
 
     // Right last
-    if (this.right) {
-      this.right.inOrderTraversal();
-    }
+    if (this.right) this.right.inOrderTraversal();
   }
   
-  // preOrderTraversal() {}
+  preOrderTraversal() {
+    if (!this.data) return;
+    console.log(this.data);
+    if (this.left) this.left.preOrderTraversal();
+    if (this.right) this.right.preOrderTraversal();
+  }
   
   // postOrderTraversal() {}
 }
@@ -58,4 +59,4 @@ myBT.insert(2);
 myBT.insert(1);
 myBT.insert(3);
 myBT.inOrderTraversal(); // 1 2 3 4 5
-
+myBT.preOrderTraversal(); // 4 2 1 3 5
