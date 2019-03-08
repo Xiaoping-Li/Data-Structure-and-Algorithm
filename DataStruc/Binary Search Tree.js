@@ -1,22 +1,17 @@
-// Define "Node" class
-function Node(data) {
-  this.data = data;
-  this.left = null;
-  this.right = null;
-}
-
 // Define Binary-Search-Tree Class
 class BinarySearchTree {
   constructor() {
-    this.root = null;
+    this.data = null;
+    this.left = null;
+    this.right = null;
   }
   
   insert(value) {
-    const newNode = new Node(value);
-    if (!this.root) {
-       this.root = newNode;
+    const newNode = new BinarySearchTree(value);
+    if (!this.data) {
+       this.data = value;
     } else {
-      if (value > this.root.data) {
+      if (value > this.data) {
         if (!this.right) {
           this.right = newNode;
         } else {
@@ -30,7 +25,7 @@ class BinarySearchTree {
         }
       }
     }
-    return this.root;
+    return this;
   }
   
   // inOrderTraversal() {}
