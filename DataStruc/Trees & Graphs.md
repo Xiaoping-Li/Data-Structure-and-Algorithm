@@ -38,6 +38,45 @@ A `perfect binary tree` is one that is both full and complete. All _leaf nodes_ 
   * Inorder Traversal (Left-Root-Right)
   * Preorder Traversal (Root-Left-Right)
   * Postorder Traversal (Left-Right-Root)
+  
+### Breadth First Traversal (Or Level Order Traversal)
+
+#### METHOD 1 (Use function to print a given level)
+**Algorithm**:
+There are basically two functions in this method. One is to print all nodes at a given level (printGivenLevel), and other is to print level order traversal of the tree (printLevelorder). printLevelorder makes use of printGivenLevel to print nodes at all levels one by one starting from root.
+```
+/*Function to print level order traversal of tree*/
+printLevelorder(tree)
+for d = 1 to height(tree)
+   printGivenLevel(tree, d);
+
+/*Function to print all nodes at a given level*/
+printGivenLevel(tree, level)
+if tree is NULL then return;
+if level is 1, then
+    print(tree->data);
+else if level greater than 1, then
+    printGivenLevel(tree->left, level-1);
+    printGivenLevel(tree->right, level-1);
+```
+
+**Time Complexity**: O(n^2) in worst case. For a skewed tree, printGivenLevel() takes O(n) time where n is the number of nodes in the skewed tree. So time complexity of printLevelOrder() is O(n) + O(n-1) + O(n-2) + .. + O(1) which is O(n^2).
+
+#### METHOD 2 (Use Queue)
+
+**Algorithm**:
+For each node, first the node is visited and then it’s child nodes are put in a FIFO queue.
+```
+printLevelorder(tree)
+1) Create an empty queue q
+2) temp_node = root /*start from root*/
+3) Loop while temp_node is not NULL
+    a) print temp_node->data.
+    b) Enqueue temp_node’s children (first left then right children) to q
+    c) Dequeue a node from q and assign it’s value to temp_node
+```
+
+**Time Complexity**: O(n) where n is number of nodes in the binary tree
 
 ### In-Order Traversal
 `In-order traversal` means to _visit_ (often print) the left branch, then the current node, and finally, the right branch. 
