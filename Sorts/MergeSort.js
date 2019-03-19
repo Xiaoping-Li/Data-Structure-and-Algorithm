@@ -28,13 +28,15 @@ Step 3 − merge the smaller lists into new list in sorted order.
 const merge = (left, right) => {
 	const combine = [];
 	while (left.length && right.length) {
-		let min = left[0] > right[0] ? right.shift() : left.shift();
-		combine.push(min);	
+		if (left[0] <= right[0]) {
+			combine.push(left.shift());
+		} else {
+			combine.push(right.shift());
+		}
 	}
 
-	if (!left.length) combine.push(...right);
-	if (!right.length) combine.push(...left);
-	return combine;
+
+	return combine.concat(left).concat(right);
 };
 
 const mergeSort = (array) => {
