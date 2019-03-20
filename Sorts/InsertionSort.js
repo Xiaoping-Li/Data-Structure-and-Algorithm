@@ -40,19 +40,17 @@ threshold must be determined experimentally and depends on the machine, but is c
 原文：https://blog.csdn.net/jinwanchiji/article/details/79652304 
 */
 
-const insertSort = numList => {
-	for (let i = 1; i < numList.length; i++) {
-		let temp = numList[i];
-    if (temp >= numList[i - 1]) continue;
-		for (let j = i - 1; j >= 0; j--) {
-			if (temp < numList[j]) {
-				numList[j + 1] = numList[j];
-				if (j === 0 || numList[j - 1] <= temp) {
-					numList[j] = temp;
-					break;
-        }
-      }
-    }
-  }
-  return numList;
+const insertSort = arr => {
+	for (let i = 1; i < arr.length; i++) {
+		let j = i - 1;
+		let temp = arr[i];
+		while (j >= 0 && arr[j] > temp) {
+		    arr[j+1] = arr[j];
+		    j--;
+		}
+		arr[j+1] = temp;
+	}
+	return arr;
 };
+
+
