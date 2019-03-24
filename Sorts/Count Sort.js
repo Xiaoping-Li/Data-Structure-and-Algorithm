@@ -1,5 +1,5 @@
 /*
-Counting Sort
+#Counting Sort
 
 Another sorting method, the counting sort, does not require comparison. Instead, you create an integer array whose index range 
 covers the entire range of values in your array to sort. Each time a value occurs in the original array, you increment the 
