@@ -22,6 +22,11 @@ A tree is a data structure composed of nodes.
     * If it does have the `left child`, we create a `new node` and insert this new node to the correct left place recursivelly.
   * insert_right:
     * do the same thing to insert a `right child node`.
+    
+#### Tree Traversal
+* **Depth-First Search (DFS)**: **DFS** explores a path all the way to a leaf before **backtracking** and exploring another path.
+
+* **Breadth-First Search (BFS)**
 
 ```
 class BinaryTree {
