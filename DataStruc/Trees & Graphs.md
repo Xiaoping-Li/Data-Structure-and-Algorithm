@@ -101,7 +101,43 @@ class BinaryTree {
 ```
 
 ### Binary Tree vs. Binary Search Tree
-A `Binary search tree` is a _binary tree_ in which every node fits a specific ordering property: **all left descendents <= n < all right descendents**. This **must** be true for each node n.
+A `Binary search tree` is a _binary tree_ in which every node fits a specific ordering property: 
+**all left descendents <= n < all right descendents**. This **must** be true for each node n.
+
+A Binary Search Tree is sometimes called `ordered or sorted binary trees`, and it keeps its values in _sorted order_, so that lookup and other operations can use the principle of binary search.
+```
+class BST {
+  constructor(val) {
+    this.value = val;
+    this.left = null;
+    this.right = null;
+  }
+  
+  insert(val) {
+    const newBST = new BST(val);
+    if (val < this.value) {
+      if (!this.left) {
+        this.left = newBST;
+      } else {
+        this.left.insert(val);
+      }
+    } else {
+      if (!this.right) {
+        this.right = newBST;
+      } else {
+        this.right.insert(val);
+      }
+    }
+  }
+
+  search(val) {
+    if (val < this.value && this.left) return this.left.search(val);
+    if (val > this.value && this.right) return this.right.search(val);
+    return val === this.value;
+  }
+
+}
+```
 
 ### Balanced vs. Unbalanced
 Note that balancing a tree **does not** mean the left and right subtrees are exactly the same size. Means the tree is **balanced enough** to ensure O(log n) times for _insert_ and _find_, but it's not necessarily as balanced as it could be.
