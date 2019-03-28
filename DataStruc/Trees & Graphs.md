@@ -18,8 +18,8 @@ A tree is a data structure composed of nodes.
 * The first thing we need to keep in mind when we _implement_ a `binary tree` is that it is a collection of `nodes`. Each `node` has three attributes: `value, left_child, and right_child`.
 * Implement methods to insert a `new node` to the `right` and to the `left`. 
   * insert_left:
-    * If the current node doesn’t have a left child, we just create a new nodeand set it to the current node’s left_child.
-    * If it does have the left child, we create a new node and put it in the current left child’s place. Allocate this left child node to the new node’s left child.
+    * If the current node doesn’t have a `left child`, we just create a `new node` and set it to the current node’s `left_child`.
+    * If it does have the `left child`, we create a `new node` and put it in the current left child’s place. Allocate this left child node to the new node’s `left child`.
   * insert_right:
     * do the same thing to insert a `right child node`.
 
