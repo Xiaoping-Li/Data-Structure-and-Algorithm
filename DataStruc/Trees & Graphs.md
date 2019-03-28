@@ -37,8 +37,12 @@ A tree is a data structure composed of nodes.
     1. Go to the `left child` and print it. This is if, and `only if`, it has a left child.
     2. Go to the `right child` and print it. This is if, and `only if`, it has a right child.
     3. Print the `node’s` value
-* **Breadth-First Search (BFS)**
-
+* **Breadth-First Search (BFS)**: **BFS** algorithm traverses the `tree` _level by level_ and _depth by depth_. To implement a `BFS` algorithm, we use the `queue` data structure to help.
+  1. First **add** the `root node` into the `queue` with the put method.
+  2. Iterate while the queue is `not empty`.
+  3. Get the `first node` in the `queue`, and then print its value.
+  4. **Add** both `left` and `right` children into the `queue` (if the current node has children).
+  5. Done. We will print the value of each node, level by level, with our queue helper.
 ```
 class BinaryTree {
   constructor(value) {
