@@ -14,6 +14,18 @@ A tree is a data structure composed of nodes.
 * Not all trees are binary trees.  
 **leaf**: A node is called a "leaf" node if it has no children.
 
+**Note**: The first thing we need to keep in mind when we _implement_ a `binary tree` is that it is a collection of `nodes`. Each `node` has three attributes: `value, left_child, and right_child`.
+
+```
+class BinaryTree {
+  constructor(val) {
+    this.val = val;
+    this.left_child = null;
+    this.right_child = null;
+  }
+}
+```
+
 ### Binary Tree vs. Binary Search Tree
 A `Binary search tree` is a _binary tree_ in which every node fits a specific ordering property: **all left descendents <= n < all right descendents**. This **must** be true for each node n.
 
