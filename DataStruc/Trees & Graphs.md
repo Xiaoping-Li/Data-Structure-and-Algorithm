@@ -227,11 +227,22 @@ In a post-order traversal, the root is always the last node visited.
 
 
 ## Binary Heaps (Min-Heaps and Max-Heaps)
-A `min-heap` is a _complete binary tree_ (that is, totally filled other than the rightmost elements on the last level) where each node is smaller than its children. The root, therefore, is the minimum element in the tree.
+A `Binary Heap` is a `Binary Tree` with following properties.
+ * 1) It’s a `complete tree` (All levels are completely filled except possibly the last level and the last level has all keys as left as possible). This property of Binary Heap makes them suitable to be stored in an `array`.
+ * 2) A `Binary Heap` is either `Min Heap` or `Max Heap`. In a Min Binary Heap, the key at root must be minimum among all keys present in Binary Heap. The same property must be recursively true for all nodes in Binary Tree. Max Binary Heap is similar to MinHeap.
 
 We have two key operations on a min-heap:
 * insert
 * extract_min
+
+**How is Binary Heap represented?**
+A `Binary Heap` is a Complete Binary Tree. A binary heap is typically represented as an `array`.
+* 1) The `root` element will be at `Arr[0]`.
+* 2) Below table shows indexes of other nodes for the `ith node`, i.e., `Arr[i]`:
+--- | --- 
+`Arr[(i-1)/2]`	| Returns the parent node 
+`Arr[(2*i)+1]`	| Returns the left child node
+`Arr[(2*i)+2]` |	Returns the right child node
 
 ### Insert
 * When we insert into a min-heap, we always start by inserting the element at the _bottom_, at the rightmost spot so as to maintain the complete tree property.
