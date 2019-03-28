@@ -86,6 +86,17 @@ class BinaryTree {
     if (this.right) this.right.postOrderTraversal();
     console.log(this.value);
   }
+  
+  BFSTraversal() {
+    const queue = [];
+    queue.push(this);
+    while (queue.length) {
+      let current = queue.shift();
+      if (current.left) queue.push(current.left);
+      if (current.right) queue.push(current.right);
+      console.log(current.value);
+    }
+  }
 }
 ```
 
