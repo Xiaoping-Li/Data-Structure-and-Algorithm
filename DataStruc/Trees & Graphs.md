@@ -239,10 +239,11 @@ We have two key operations on a min-heap:
 A `Binary Heap` is a Complete Binary Tree. A binary heap is typically represented as an `array`.
 * 1) The `root` element will be at `Arr[0]`.
 * 2) Below table shows indexes of other nodes for the `ith node`, i.e., `Arr[i]`:
---- | --- 
+
 `Arr[(i-1)/2]`	| Returns the parent node 
-`Arr[(2*i)+1]`	| Returns the left child node
-`Arr[(2*i)+2]` |	Returns the right child node
+------ | ------
+`Arr[(2*i)+1]`	| Returns the left child node 
+`Arr[(2*i)+2]` |	Returns the right child node 
 
 ### Insert
 * When we insert into a min-heap, we always start by inserting the element at the _bottom_, at the rightmost spot so as to maintain the complete tree property.
