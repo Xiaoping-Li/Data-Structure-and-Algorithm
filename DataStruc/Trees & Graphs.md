@@ -19,16 +19,34 @@ A tree is a data structure composed of nodes.
 * Implement methods to insert a `new node` to the `right` and to the `left`. 
   * insert_left:
     * If the current node doesn’t have a `left child`, we just create a `new node` and set it to the current node’s `left_child`.
-    * If it does have the `left child`, we create a `new node` and put it in the current left child’s place. Allocate this left child node to the new node’s `left child`.
+    * If it does have the `left child`, we create a `new node` and insert this new node to the correct left place recursivelly.
   * insert_right:
     * do the same thing to insert a `right child node`.
 
 ```
 class BinaryTree {
-  constructor(val) {
-    this.val = val;
-    this.left_child = null;
-    this.right_child = null;
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+
+  insertLeft(val) {
+    const newTree = new BinaryTree(val);
+    if (!this.left) {
+      this.left = newTree;
+    } else {
+      this.left.insertLeft(val);
+    }
+  }
+
+  insertRight(val) {
+    const newTree = new BinaryTree(val);
+    if (!this.right) {
+      this.right = newTree;
+    } else {
+      this.right.insertRight(val);
+    }
   }
 }
 ```
