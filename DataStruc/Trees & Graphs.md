@@ -3,7 +3,11 @@
 A tree is a data structure composed of nodes.
 * Each tree has a root node.
 * The root node has zero or more child nodes.
-* Each child node has zero or more child nodes, and so on.###
+* Each child node has zero or more child nodes, and so on.
+
+**Note**: Other important concepts to understand are height and depth.
+* The **height** of a `tree` is the length of the longest path to a `leaf`.
+* The **depth** of a `node` is the length of the path to its `root`.
 
 ### Trees vs. Binary Trees
 * Binary tree is a tree which each node has up to two children.
