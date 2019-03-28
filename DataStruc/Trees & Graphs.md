@@ -24,8 +24,19 @@ A tree is a data structure composed of nodes.
     * do the same thing to insert a `right child node`.
     
 #### Tree Traversal
-* **Depth-First Search (DFS)**: **DFS** explores a path all the way to a leaf before **backtracking** and exploring another path.
-
+* **Depth-First Search (DFS)**: **DFS** explores a path all the way to a leaf before **backtracking** and exploring another path. `pre-order`, `in-order`, and `post-order`
+  * `pre-order`
+    1. Print the value of the `node`.
+    2. Go to the `left child` and print it. This is if, and `only if`, it has a left child.
+    3. Go to the `right child` and print it. This is if, and `only if`, it has a right child.
+  * `in-order`: The left first, the middle second, and the right last.
+    1. Go to the `left child` and print it. This is if, and `only if`, it has a left child.
+    2. Print the `node’s` value
+    3. Go to the `right child` and print it. This is if, and `only if`, it has a right child.
+  * `post-order`: The left first, the right second, and the middle last.
+    1. Go to the `left child` and print it. This is if, and `only if`, it has a left child.
+    2. Go to the `right child` and print it. This is if, and `only if`, it has a right child.
+    3. Print the `node’s` value
 * **Breadth-First Search (BFS)**
 
 ```
@@ -52,6 +63,24 @@ class BinaryTree {
     } else {
       this.right.insertRight(val);
     }
+  }
+  
+  preOrderTraversal() {
+    console.log(this.value);
+    if (this.left) this.left.preOrder();
+    if (this.right) this.right.preOrder();
+  }
+  
+  inOrderTraversal() {
+    if (this.left) this.left.inOrderTraversal();
+    console.log(this.value);
+    if (this.right) this.right.inOrderTraversal();
+  }
+
+  postOrderTraversal() {
+    if (this.left) this.left.postOrderTraversal();
+    if (this.right) this.right.postOrderTraversal();
+    console.log(this.value);
   }
 }
 ```
