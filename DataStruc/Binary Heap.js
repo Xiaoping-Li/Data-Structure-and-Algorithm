@@ -27,5 +27,37 @@ class MinHeap {
     }
     return key;
   }
+      
+  extractMin() {
+    if (this.heap.length < 3) {
+      return this.heap.shift();
+    }
+
+    // Remove min from this.heap[0];
+    const min = this.heap.shift();
+    // Move the last one to the head this.heap[0]
+    this.heap.unshift(this.heap.pop());
+    // Compare the new head with it's left and right children, until find the correct place for this new head
+    let i = 0;
+    const newHead = this.heap[0];
+    let leftChild = this.heap[2 * i + 1];
+    let rightChild = this.heap[2 * i + 2];
+    while((leftChild || rightChild) && (newHead > leftChild || newHead > rightChild)) {
+      if (leftChild < rightChild) {
+        this.heap[i] = this.heap[2 * i + 1];
+        this.heap[2 * i + 1] = newHead;
+        i = 2 * i + 1;
+        leftChild = this.heap[2 * i + 1];
+        rightChild = this.heap[2 * i + 2];
+      } else {
+        this.heap[i] = this.heap[2 * i + 2];
+        this.heap[2 * i + 2] = newHead;
+        i = 2 * i + 2;
+        leftChild = this.heap[2 * i + 1];
+        rightChild = this.heap[2 * i + 2];
+      }
+    }
+    return min;
+  }
 
 }
