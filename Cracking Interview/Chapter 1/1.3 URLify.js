@@ -14,4 +14,16 @@ String.trimStart()
 
 const URLify = str => {
   return str.trim().split(' ').join('%20');
+};
+
+const URLify = (str, n) => {
+  let result = '';
+  for (let i = 0; i < n; i++) {
+    if (str[i] === ' ') {
+      result += '%20';
+    } else {
+      result += str[i];
+    }   
+  }
+  return result; 
 }
