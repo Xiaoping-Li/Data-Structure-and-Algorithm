@@ -20,7 +20,7 @@ const isSubstring = (str1, str2) => {
 };
 
 
-
+// Time O(n) - n: str length. Space O(n) - rotated str, variable k
 const isSubstring = (str1, str2) => {
   if (str1 === str2) return true;
   if (str1.length !== str2.length) return false;
