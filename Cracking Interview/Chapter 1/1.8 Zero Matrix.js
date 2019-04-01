@@ -12,7 +12,7 @@ const cleanRepeats = array => {
   return noRepeats;
 };
 
-
+// O(n) space
 const zeroMatrix = nums => {
   // Use array to store rows and cloumns index which needs to be changed to 0
   let rows = [];
@@ -44,3 +44,9 @@ const zeroMatrix = nums => {
   }
   return nums;
 }
+
+
+/*
+We can reduce the space to O(1) by using the first row as a replacement for the rows array and the first colum as a replacement
+for the column array.
+*/
