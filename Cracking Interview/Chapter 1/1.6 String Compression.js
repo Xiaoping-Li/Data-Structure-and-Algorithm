@@ -8,19 +8,16 @@ string instead. You can assume the string has only uppercase and lowercase lette
 
 const strCompression = str => {
   if (str.length < 2) return str;
-  let rtn = str[0];
-  let count = 1;
-  let i = 1;
-  while (i < str.length) {
-    if (str[i - 1] === str[i]) {
-      count++;
-    } else {
-      rtn = rtn + count.toString() + str[i];
-      count = 1;
+  let rtn = '';
+  let count = 0;
+  
+  for (let i = 0; i < str.length; i++) {
+    count++;
+    if (i + 1 >= str.length || str[i] !== str[i + 1]) {
+      rtn += str[i] + count;
+      count = 0;
     }
-    i++;
   }
   
-  rtn = rtn + count.toString()
   return rtn.length < str.length ? rtn : str;
 }
