@@ -7,3 +7,64 @@ Example:
 Input: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1  [partiton = 5]
 Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
 */
+
+// Node constructor function
+function Node(val) {
+  this.value = val;
+  this.next = null;
+};
+
+// LinkedList function
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+  
+  append(val) {
+    const newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      return this.head;
+    }
+    
+    let tail = this.head;
+    while (tail.next) {
+      tail = tail.next;
+    }
+    tail.next = newNode;
+    return this.head;
+  }
+  
+  partition(num) {
+    if (!this.head || !this.head.next) return false;
+    
+    let current = this.head;
+    let prev = null;
+    while (current.next) {
+      if (current.next.value < num) {
+        // Move lessNode to the head
+        let lessNode = current.next;
+        lessNode.next = this.head;
+        this.head = lessNode;
+        
+        // Reset the connections between current and current.next.next
+        current.next = current.next.next;
+        prev = current;
+        current = current.next; 
+      } else {
+        prev = current;
+        current = current.next;
+      }
+    }
+    
+    if (current.value < num) {
+      current.next = this.head;
+      this.head = current;
+      prev.next = null;
+      return this.head;
+    } else {
+      return this.head;
+    } 
+  }
+  
+}
