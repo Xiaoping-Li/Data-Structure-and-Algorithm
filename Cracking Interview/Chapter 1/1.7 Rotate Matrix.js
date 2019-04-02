@@ -11,5 +11,18 @@ Ask questions:
 // Brute force: create new nested array, rotate the original one, and fill the new nested array
 const RotateMatrix = array => {
   const rotated = [];
+  const n = array.length;
+  for (let i = 0; i < n; i++) {
+    rotated.push([]);
+  }
   
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      rotated[j][n - 1 - i] = array[i][j];
+    }
+  }
+  return rotated;
 }
+
+
+// In place solution:
