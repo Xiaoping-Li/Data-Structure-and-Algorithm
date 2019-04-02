@@ -7,6 +7,9 @@ Input: the node c from the linked list a -> b -> c -> d -> e -> f
 Output: nothing is returned, but the new linked list looks like: a -> b -> d -> e -> f
 
 Note: In this problem, you are not given access to the head of the linked list. You only have access to that node.
+
+Ask question:
+1. The given node is definitly not the last node?
 */
 
 // Node constructor function
@@ -53,6 +56,16 @@ class LinkedList {
     
     current.next = current.next.next;
     return this.head;
+  }
+  
+  // Have the access to the node
+  // Using nextNode's value and next replace the middleNode's value and next
+  removeMiddle(middleNode) {
+    if (!middleNode || !middleNode.next) return false;
+    const nextNode = middleNode.next;
+    middleNode.value = nextNode.value;
+    middleNode.next = nextNode.next;
+    return true;
   }
   
 }
