@@ -26,3 +26,32 @@ const RotateMatrix = array => {
 
 
 // In place solution:
+/*
+for i = 0 to n:
+  temp = top[i]
+  top[i] = left[i]
+  left[i] = bottom[i]
+  bottom[i] = right[i]
+  right[i] = temp
+*/
+
+const RotateMatrix = nums => {
+  if (!nums.length || nums.length !== nums[0].length) return;
+  const n = nums.length;
+  for (let i = 0; i < n / 2; i++) {
+    
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
