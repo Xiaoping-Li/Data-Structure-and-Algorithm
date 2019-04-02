@@ -8,6 +8,8 @@ Ask questions:
 1. Rotate direction: clockwise or anticlockwise?            
 */
 
+// Brute force: create new nested array, rotate the original one, and fill the new nested array
 const RotateMatrix = array => {
+  const rotated = [];
   
 }
