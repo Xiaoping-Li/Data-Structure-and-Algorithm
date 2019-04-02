@@ -38,10 +38,16 @@ for i = 0 to n:
 const RotateMatrix = nums => {
   if (!nums.length || nums.length !== nums[0].length) return;
   const n = nums.length;
-  for (let i = 0; i < n / 2; i++) {
-    
+  for (let i = 0; i < n - 1 - i; i++) {
+    for (let j = i; j < n - 1 - i; j++) {
+      let temp = nums[i][j];
+      nums[i][j] = nums[n-1-j][i];
+      nums[n-1-j][i] = nums[n-1-i][n-1-j];
+      nums[n-1-i][n-1-j] = nums[j][n-1-i];
+      nums[j][n-1-i] = temp;
+    } 
   }
-  
+  return nums;
 }
 
 
