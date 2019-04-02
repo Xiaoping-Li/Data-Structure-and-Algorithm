@@ -31,7 +31,23 @@ class LinkedList {
   }
   
   // Remove duplicates with extra memory
-  removeDup () {}
+  removeDup () {
+    if (!this.head) return;
+    if (!this.head.next) return this.head;
+    
+    let freq = {};
+    let current = this.head;
+    let pre;
+    while (current) {
+      if (freq[current.value]) {
+        pre.next = current.next;
+      } else {
+        freq[current.value] = 1;
+        pre = current;
+      }
+      current = current.next;
+    }
+  }
   
   // Remove duplicates with out extra memory
   removeDup() {
