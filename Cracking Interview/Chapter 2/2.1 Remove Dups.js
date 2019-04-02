@@ -3,18 +3,19 @@
 Write code to remove duplicates from an unsorted linked list.
 How would you solve this problem if a temporary buffer (additional buffer/memory/space) is not allowed?
 */
-
-const Node = val => {
+// Node constructor function
+function Node(val) {
   this.value = val;
   this.next = null;
 };
 
+// LinkedList function
 class LinkedList {
   constructor() {
     this.head = null;
   }
   
-  append = val => {
+  append(val) {
     const newNode = new Node(val);
     if (!this.head) {
       this.head = newNode;
@@ -29,7 +30,11 @@ class LinkedList {
     return this.head;
   }
   
-  removeDup = () => {
+  // Remove duplicates with extra memory
+  removeDup () {}
+  
+  // Remove duplicates with out extra memory
+  removeDup() {
     if (!this.head) return;
     if (!this.head.next) return this.head;
     
