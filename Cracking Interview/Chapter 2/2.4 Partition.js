@@ -37,20 +37,20 @@ class LinkedList {
   
   partition(num) {
     if (!this.head || !this.head.next) return false;
-    
+
     let current = this.head;
     let prev = null;
     while (current.next) {
       if (current.next.value < num) {
-        // Move lessNode to the head
         let lessNode = current.next;
-        lessNode.next = this.head;
-        this.head = lessNode;
-        
         // Reset the connections between current and current.next.next
         current.next = current.next.next;
         prev = current;
         current = current.next; 
+        
+        // Move lessNode to the head
+        lessNode.next = this.head;
+        this.head = lessNode;  
       } else {
         prev = current;
         current = current.next;
