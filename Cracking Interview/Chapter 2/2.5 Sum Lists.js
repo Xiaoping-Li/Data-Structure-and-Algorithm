@@ -19,71 +19,26 @@ function Node(val) {
   this.next = null;
 };
 
-// LinkedList function
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-  
-  append(val) {
-    const newNode = new Node(val);
-    if (!this.head) {
-      this.head = newNode;
-      return this.head;
-    }
-    
-    let tail = this.head;
-    while (tail.next) {
-      tail = tail.next;
-    }
-    tail.next = newNode;
-    return this.head;
-  }  
-}
-
-// Reverse number list
-// 1. Make add changes on the longer list, and return the longer list
 const sumLists = (list1, list2) => {
-  // Find the longer one between list1 and list2, return the longer one as result
-  let long, short, n = 0, m = 0;
-  let current1 = list1.head;
-  let current2 = list2.head;
-  while(current1) {
+  let current1 = list1;
+  let current2 = list2;
+  let carrier = 0;
+  let total;
+  let rtn = new Node(carrier);
+  let current = rtn;
+  while (current1 || current2) {
+    total = carrier;
+    if(current1) total += current1.value;
+    if(current2) total += current2.value;
+    total >= 10 ? carrier = 1 : carrier = 0;
+    current.value = total % 10;
+    current.next = new Node(carrier);
+    current = current.next;
     current1 = current1.next;
-    n++;
-  }
-  while(current2) {
-    current2 = current2.next;
-    m++;
+    current2 = current2.next;  
   }
   
-  if (n >= m) {
-    long = list1;
-    short = list2;
-  } else {
-    long = list2;
-    short = list1;
-  }
   
-  // Initiate current1 and current2, loop through Long list and short list, and add digits on the long list
-  current1 = long.head;
-  current2 = short.head;
-  
-  while (current2) {
-    if (current1.value + current2.value < 10) {
-      current1.value = current1.value + current2.value;
-    } else {
-      if (current1.next) {
-        current1.value = current1.value + current2.value - 10;
-        current1.next.value++;
-      } else {
-        current1.value = current1.value + current2.value - 10;
-        let newNode = new Node(1);
-        current1.next = newNode;
-      }
-    }
-  }
-  return long; 
 }
 
 
