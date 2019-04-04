@@ -19,6 +19,12 @@ then     a === b   => true;
 // 1. Find if the tail nodes point to the same reference. If not, then intersection is false;
 // 2. If true, find the intersecting node, and check if it points to the same reference
 // Note: the length of the lists may be not the same, if not, then chop off the extra nodes from the head of the longer list
+
+function Node(val) {
+  this.value = val;
+  this.next = null;
+};
+
 const intersection = (list1, list2) => {
   let tail1 = list1;
   let tail2 = list2;
@@ -53,3 +59,22 @@ const intersection = (list1, list2) => {
   }
   return false; 
 };
+
+
+const intersect = new Node(7);
+intersect.next = new Node(2);
+intersect.next.next = new Node(1);
+
+const list1 = new Node(3);
+list1.next = new Node(1);
+list1.next.next = new Node(5);
+list1.next.next.next = new Node(9);
+list1.next.next.next.next = new Node(6);
+// list1.next.next.next.next.next = intersect;
+
+const list2 = new Node(4);
+list2.next = new Node(9);
+list2.next.next = new Node(6);
+// list2.next.next.next = intersect;
+
+intersection(list1, list2);
