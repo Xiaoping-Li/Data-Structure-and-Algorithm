@@ -1,6 +1,9 @@
 /*
 2.6 Palindrome
 Implement a function to check if a linked list is a palindrome.
+
+Ask questions:
+1. Do you know the length of the linked list?
 */
 function Node(val) {
   this.value = val;
@@ -36,18 +39,20 @@ const isPalindrome = list => {
 
 // Create reversed list and compare each element between original and reversed lists
 const isPalindrome = list => {
-  let reversed = new Node(list.value);
-  let current = list.next;
+  let reversed = null;
+  let current = list;
+  let count = 0;
   while (current) {
     let newNode = new Node(current.value);
     newNode.next = reversed;
     reversed = newNode;
     current = current.next;
+    count++;
   }
   
   let headList = list;
   let headReversed = reversed;
-  while (headList) {
+  for (let i = 0; i < count / 2; i++) {
     if (headList.value !== headReversed.value) return false;
     headList = headList.next;
     headReversed = headReversed.next;
