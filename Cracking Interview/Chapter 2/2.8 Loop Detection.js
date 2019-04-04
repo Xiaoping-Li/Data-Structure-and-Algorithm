@@ -11,3 +11,6 @@ Input: A -> B -> C -> D -> E -> C
 Output: C
 */
 
+const loopDetection = list => {
+  
+};
