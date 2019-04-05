@@ -9,3 +9,85 @@ there were just a single stack).
 Follow up:
 Implement a function popAt(idx) which performs a pop operation on a specific sub-stack.
 */
+
+function StackNode(val) {
+  this.value = val;
+  this.next = null;
+};
+
+class Stack {
+  constructor() {
+    this.top = null;
+    this.length = 0;
+  }
+  
+  pop() {
+    if(!this.top) return 'Empty stack';
+    let popItem = this.top.value;
+    this.top = this.top.next;
+    this.length--;
+    return popItem;
+  }
+  
+  push(item) {
+    const newNode = new StackNode(item);
+    newNode.next = this.top;
+    this.top = newNode;
+    this.length++;
+    return this.top;
+  }
+  
+  peek() {
+    if (!this.top) return 'Empty stack';
+    return this.top.value;
+  }
+  
+  isEmpty() {
+    return !this.top
+  }
+}
+
+class SetOfStacks {
+  constructor(n) {
+    this.storage = [];
+    this.size = n;
+  }
+  
+  push(item) {
+    const lastStack = this.storage[this.storage.length - 1];
+    if (lastStack && lastStack.length < this.size) {
+      lastStack.push(item);
+    } else {
+      const newStack = new Stack();
+      newStack.push(item);
+      this.storage.push(newStack);
+    }
+  }
+  
+  pop() {
+    if (!this.storage.length) return 'Empty Stack';
+    let lastStack = this.storage[this.storage.length - 1];
+    if (lastStack.length > 0) {
+      return lastStack.pop();
+    } else {
+      this.storage.pop();
+      lastStack = this.storage[this.storage.length - 1];
+      return lastStack.pop();
+    }
+  }
+  
+  popAt(idx) {
+    
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
