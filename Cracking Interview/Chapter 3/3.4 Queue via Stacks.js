@@ -82,17 +82,3 @@ class MyQueue {
     return this.old.peek();
   }  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
