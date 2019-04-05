@@ -20,6 +20,41 @@ class Stack {
   }
 }
 
+// Using linked list to implement stack
+function StackNode(val) {
+  this.value = val;
+  this.next = null;
+};
+
+class Stack {
+  constructor() {
+    this.top = null;
+  }
+  
+  pop() {
+    if(!this.top) return 'Empty stack';
+    let popItem = this.top.value;
+    this.top = this.top.next;
+    return popItem;
+  }
+  
+  push(item) {
+    const newNode = new StackNode(item);
+    newNode.next = this.top;
+    this.top = newNode;
+    return this.top;
+  }
+  
+  peek() {
+    if (!this.top) return 'Empty stack';
+    return this.top.value;
+  }
+  
+  isEmpty() {
+    return !this.top
+  }
+}
+
 /*
 题目：利用栈的数据结构特点，将二进制转换为十进制数。
 二进制转换为十进制数：从最低位开始，每一位去乘以对应位的积(xi * 2 ^(i - 1))，然后全部加起来。
