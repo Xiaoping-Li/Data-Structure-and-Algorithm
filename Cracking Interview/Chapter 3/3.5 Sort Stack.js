@@ -43,18 +43,10 @@ const sortStack = nums => {
   const storage = new Stack();
   while (!nums.isEmpty()) {
     let temp = nums.pop();
-    if (storage.isEmpty()) {
-      storage.push(temp);
-    } else {
-      if (temp >= storage.peek()) {
-        storage.push(temp);
-      } else {
-        while (temp < storage.peek() && !storage.isEmpty()) {
-          nums.push(storage.pop());
-        }
-        storage.push(temp);
-      }
+    while (temp < storage.peek() && !storage.isEmpty()) {
+      nums.push(storage.pop());
     }
+    storage.push(temp);
   }
   
   while (!storage.isEmpty()) {
