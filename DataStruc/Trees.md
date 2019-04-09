@@ -1,4 +1,4 @@
-# Trees and Graphs
+# Trees
 ## Types of Trees
 A tree is a data structure composed of nodes.
 * Each tree has a root node.
@@ -170,27 +170,3 @@ The traversal method use to achieve Array representation is **Level Order**.
 * 5) `delete()`: Deleting a key also takes O(Logn) time. We replace the key to be deleted with minum infinite by calling decreaseKey(). After decreaseKey(), the minus infinite value must reach root, so we call extractMin() to remove the key.
 
 ## Tries (Prefix Trees)
-
-
-## Graphs
-### Adjacency List
-
-### Adjacency Matrices
-
-
-## Graph Search
-
-### Depth-First Search (DFS)
-
-### Breadth-First Search (BFS)
-
-
-
-
-
-
-
-
-
-
-
