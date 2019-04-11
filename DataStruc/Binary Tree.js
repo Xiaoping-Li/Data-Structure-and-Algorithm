@@ -1,3 +1,4 @@
+//
 class BinaryTree {
   constructor(value) {
     this.value = value;
